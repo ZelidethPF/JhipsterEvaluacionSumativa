@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (agendamiento(); as agendamientoRef) {
+      <div>
+        <h2 data-cy="agendamientoDetailsHeading">
+          <span jhiTranslate="evaluacionSumativaApp.agendamiento.detail.title">Agendamiento</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.paciente">Paciente</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.paciente }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.medico">Medico</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.medico }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.centro">Centro</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.centro }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.fechahora">Fechahora</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.fechahora | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.estado">Estado</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.estado }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.origen">Origen</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.origen }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.motivo">Motivo</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.motivo }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.fechaingreso">Fechaingreso</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.fechaingreso | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.agendamiento.nivelprioridad">Nivelprioridad</span></dt>
+          <dd>
+            <span>{{ agendamientoRef.nivelprioridad }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/agendamiento', agendamientoRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

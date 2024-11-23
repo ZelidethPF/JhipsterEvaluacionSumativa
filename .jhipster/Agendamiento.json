@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20241123025431"
+  },
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "paciente",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "medico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "centro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechahora",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "origen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "motivo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaingreso",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nivelprioridad",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Agendamiento",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

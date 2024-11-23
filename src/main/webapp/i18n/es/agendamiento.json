@@ -1,0 +1,32 @@
+{
+  "evaluacionSumativaApp": {
+    "agendamiento": {
+      "home": {
+        "title": "Agendamientos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Agendamiento",
+        "createOrEditLabel": "Crear o editar Agendamiento",
+        "notFound": "Ningún Agendamientos encontrado"
+      },
+      "created": "Un nuevo Agendamiento ha sido creado con el identificador {{ param }}",
+      "updated": "Un Agendamiento ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Agendamiento ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Agendamiento {{ id }}?"
+      },
+      "detail": {
+        "title": "Agendamiento"
+      },
+      "id": "ID",
+      "paciente": "Paciente",
+      "medico": "Medico",
+      "centro": "Centro",
+      "fechahora": "Fechahora",
+      "estado": "Estado",
+      "origen": "Origen",
+      "motivo": "Motivo",
+      "fechaingreso": "Fechaingreso",
+      "nivelprioridad": "Nivelprioridad"
+    }
+  }
+}

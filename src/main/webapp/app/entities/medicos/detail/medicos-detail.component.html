@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (medicos(); as medicosRef) {
+      <div>
+        <h2 data-cy="medicosDetailsHeading"><span jhiTranslate="evaluacionSumativaApp.medicos.detail.title">Medicos</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ medicosRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ medicosRef.nombre }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.rut">Rut</span></dt>
+          <dd>
+            <span>{{ medicosRef.rut }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.especialidad">Especialidad</span></dt>
+          <dd>
+            <span>{{ medicosRef.especialidad }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.telefono">Telefono</span></dt>
+          <dd>
+            <span>{{ medicosRef.telefono }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.ciudad">Ciudad</span></dt>
+          <dd>
+            <span>{{ medicosRef.ciudad }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.email">Email</span></dt>
+          <dd>
+            <span>{{ medicosRef.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.medicos.estado">Estado</span></dt>
+          <dd>
+            <span>{{ medicosRef.estado }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/medicos', medicosRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="CentrosDeSaludHeading">
+    <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.home.title">Centros De Saluds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-centros-de-salud"
+        [routerLink]="['/centros-de-salud/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.home.createLabel">Crear nuevo Centros De Salud</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (centrosDeSaluds?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.home.notFound">Ningún Centros De Saluds encontrado</span>
+    </div>
+  }
+
+  @if (centrosDeSaluds && centrosDeSaluds.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nombre">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.nombre">Nombre</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tipo">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.tipo">Tipo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ciudad">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.ciudad">Ciudad</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="direccion">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.direccion">Direccion</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="telefono">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.telefono">Telefono</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (centrosDeSalud of centrosDeSaluds; track trackId(centrosDeSalud)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/centros-de-salud', centrosDeSalud.id, 'view']">{{ centrosDeSalud.id }}</a>
+              </td>
+              <td>{{ centrosDeSalud.nombre }}</td>
+              <td>{{ centrosDeSalud.tipo }}</td>
+              <td>{{ centrosDeSalud.ciudad }}</td>
+              <td>{{ centrosDeSalud.direccion }}</td>
+              <td>{{ centrosDeSalud.telefono }}</td>
+              <td>{{ centrosDeSalud.email }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/centros-de-salud', centrosDeSalud.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/centros-de-salud', centrosDeSalud.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(centrosDeSalud)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

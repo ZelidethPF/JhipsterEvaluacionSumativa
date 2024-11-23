@@ -1,0 +1,47 @@
+{
+  "annotations": {
+    "changelogDate": "20241121205914"
+  },
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rut",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "edad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ciudad",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Paciente",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

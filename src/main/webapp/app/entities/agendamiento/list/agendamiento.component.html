@@ -1,0 +1,150 @@
+<div>
+  <h2 id="page-heading" data-cy="AgendamientoHeading">
+    <span jhiTranslate="evaluacionSumativaApp.agendamiento.home.title">Agendamientos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="evaluacionSumativaApp.agendamiento.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-agendamiento"
+        [routerLink]="['/agendamiento/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="evaluacionSumativaApp.agendamiento.home.createLabel">Crear nuevo Agendamiento</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (agendamientos?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="evaluacionSumativaApp.agendamiento.home.notFound">Ningún Agendamientos encontrado</span>
+    </div>
+  }
+
+  @if (agendamientos && agendamientos.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paciente">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.paciente">Paciente</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="medico">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.medico">Medico</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="centro">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.centro">Centro</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fechahora">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.fechahora">Fechahora</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="estado">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.estado">Estado</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="origen">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.origen">Origen</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="motivo">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.motivo">Motivo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fechaingreso">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.fechaingreso">Fechaingreso</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nivelprioridad">
+              <div class="d-flex">
+                <span jhiTranslate="evaluacionSumativaApp.agendamiento.nivelprioridad">Nivelprioridad</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (agendamiento of agendamientos; track trackId(agendamiento)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/agendamiento', agendamiento.id, 'view']">{{ agendamiento.id }}</a>
+              </td>
+              <td>{{ agendamiento.paciente }}</td>
+              <td>{{ agendamiento.medico }}</td>
+              <td>{{ agendamiento.centro }}</td>
+              <td>{{ agendamiento.fechahora | formatMediumDatetime }}</td>
+              <td>{{ agendamiento.estado }}</td>
+              <td>{{ agendamiento.origen }}</td>
+              <td>{{ agendamiento.motivo }}</td>
+              <td>{{ agendamiento.fechaingreso | formatMediumDate }}</td>
+              <td>{{ agendamiento.nivelprioridad }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/agendamiento', agendamiento.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+                  </a>
+
+                  <a [routerLink]="['/agendamiento', agendamiento.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(agendamiento)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

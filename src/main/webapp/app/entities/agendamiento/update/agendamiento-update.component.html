@@ -1,0 +1,120 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-agendamiento-heading"
+        data-cy="AgendamientoCreateUpdateHeading"
+        jhiTranslate="evaluacionSumativaApp.agendamiento.home.createOrEditLabel"
+      >
+        Crear o editar Agendamiento
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="evaluacionSumativaApp.agendamiento.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_paciente" jhiTranslate="evaluacionSumativaApp.agendamiento.paciente">Paciente</label>
+          <input type="text" class="form-control" name="paciente" id="field_paciente" data-cy="paciente" formControlName="paciente" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_medico" jhiTranslate="evaluacionSumativaApp.agendamiento.medico">Medico</label>
+          <input type="text" class="form-control" name="medico" id="field_medico" data-cy="medico" formControlName="medico" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_centro" jhiTranslate="evaluacionSumativaApp.agendamiento.centro">Centro</label>
+          <input type="text" class="form-control" name="centro" id="field_centro" data-cy="centro" formControlName="centro" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_fechahora" jhiTranslate="evaluacionSumativaApp.agendamiento.fechahora">Fechahora</label>
+          <div class="d-flex">
+            <input
+              id="field_fechahora"
+              data-cy="fechahora"
+              type="datetime-local"
+              class="form-control"
+              name="fechahora"
+              formControlName="fechahora"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_estado" jhiTranslate="evaluacionSumativaApp.agendamiento.estado">Estado</label>
+          <input type="text" class="form-control" name="estado" id="field_estado" data-cy="estado" formControlName="estado" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_origen" jhiTranslate="evaluacionSumativaApp.agendamiento.origen">Origen</label>
+          <input type="text" class="form-control" name="origen" id="field_origen" data-cy="origen" formControlName="origen" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_motivo" jhiTranslate="evaluacionSumativaApp.agendamiento.motivo">Motivo</label>
+          <input type="text" class="form-control" name="motivo" id="field_motivo" data-cy="motivo" formControlName="motivo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_fechaingreso" jhiTranslate="evaluacionSumativaApp.agendamiento.fechaingreso"
+            >Fechaingreso</label
+          >
+          <div class="input-group">
+            <input
+              id="field_fechaingreso"
+              data-cy="fechaingreso"
+              type="text"
+              class="form-control"
+              name="fechaingreso"
+              ngbDatepicker
+              #fechaingresoDp="ngbDatepicker"
+              formControlName="fechaingreso"
+            />
+            <button type="button" class="btn btn-secondary" (click)="fechaingresoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_nivelprioridad" jhiTranslate="evaluacionSumativaApp.agendamiento.nivelprioridad"
+            >Nivelprioridad</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nivelprioridad"
+            id="field_nivelprioridad"
+            data-cy="nivelprioridad"
+            formControlName="nivelprioridad"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

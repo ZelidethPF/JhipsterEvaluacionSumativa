@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (paciente(); as pacienteRef) {
+      <div>
+        <h2 data-cy="pacienteDetailsHeading"><span jhiTranslate="evaluacionSumativaApp.paciente.detail.title">Paciente</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ pacienteRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ pacienteRef.nombre }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.rut">Rut</span></dt>
+          <dd>
+            <span>{{ pacienteRef.rut }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.edad">Edad</span></dt>
+          <dd>
+            <span>{{ pacienteRef.edad }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.sexo">Sexo</span></dt>
+          <dd>
+            <span>{{ pacienteRef.sexo }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.direccion">Direccion</span></dt>
+          <dd>
+            <span>{{ pacienteRef.direccion }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.ciudad">Ciudad</span></dt>
+          <dd>
+            <span>{{ pacienteRef.ciudad }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.telefono">Telefono</span></dt>
+          <dd>
+            <span>{{ pacienteRef.telefono }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.paciente.email">Email</span></dt>
+          <dd>
+            <span>{{ pacienteRef.email }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/paciente', pacienteRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

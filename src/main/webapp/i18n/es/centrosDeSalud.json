@@ -1,0 +1,29 @@
+{
+  "evaluacionSumativaApp": {
+    "centrosDeSalud": {
+      "home": {
+        "title": "Centros De Saluds",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Centros De Salud",
+        "createOrEditLabel": "Crear o editar Centros De Salud",
+        "notFound": "Ningún Centros De Saluds encontrado"
+      },
+      "created": "Un nuevo Centros De Salud ha sido creado con el identificador {{ param }}",
+      "updated": "Un Centros De Salud ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Centros De Salud ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Centros De Salud {{ id }}?"
+      },
+      "detail": {
+        "title": "Centros De Salud"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "tipo": "Tipo",
+      "ciudad": "Ciudad",
+      "direccion": "Direccion",
+      "telefono": "Telefono",
+      "email": "Email"
+    }
+  }
+}

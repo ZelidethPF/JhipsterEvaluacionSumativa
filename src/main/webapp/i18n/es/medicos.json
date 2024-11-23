@@ -1,0 +1,30 @@
+{
+  "evaluacionSumativaApp": {
+    "medicos": {
+      "home": {
+        "title": "Medicos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Medicos",
+        "createOrEditLabel": "Crear o editar Medicos",
+        "notFound": "Ningún Medicos encontrado"
+      },
+      "created": "Un nuevo Medicos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Medicos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Medicos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Medicos {{ id }}?"
+      },
+      "detail": {
+        "title": "Medicos"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "rut": "Rut",
+      "especialidad": "Especialidad",
+      "telefono": "Telefono",
+      "ciudad": "Ciudad",
+      "email": "Email",
+      "estado": "Estado"
+    }
+  }
+}

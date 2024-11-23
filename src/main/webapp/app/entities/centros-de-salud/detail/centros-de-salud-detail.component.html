@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (centrosDeSalud(); as centrosDeSaludRef) {
+      <div>
+        <h2 data-cy="centrosDeSaludDetailsHeading">
+          <span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.detail.title">Centros De Salud</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.nombre }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.tipo">Tipo</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.tipo }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.ciudad">Ciudad</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.ciudad }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.direccion">Direccion</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.direccion }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.telefono">Telefono</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.telefono }}</span>
+          </dd>
+          <dt><span jhiTranslate="evaluacionSumativaApp.centrosDeSalud.email">Email</span></dt>
+          <dd>
+            <span>{{ centrosDeSaludRef.email }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/centros-de-salud', centrosDeSaludRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
